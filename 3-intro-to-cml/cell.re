@@ -33,7 +33,7 @@ let create v => {
   let reqCh = Event.new_channel ();
   let replyCh = Event.new_channel ();
 
-  Thread.create (fun v => {
+  let _ = Thread.create (fun v => {
     let rec loop = fun state => {
       switch (Event.sync (Event.receive reqCh)) {
         | Get => {

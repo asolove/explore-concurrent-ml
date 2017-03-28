@@ -8,3 +8,9 @@ a good primitive for concurrent programming, but is a simple first example.
 
 See `cell.rei` for the signature, `cell.re` for the implementation, and an
 example program with interleaving problems in `cell_example.re`.
+
+
+## Updatable cell using selective communication, p52-3
+
+This is a slightly terser definition of the same data type, using `select`,
+in `cell2.re`.
