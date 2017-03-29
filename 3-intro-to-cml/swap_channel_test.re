@@ -9,7 +9,7 @@ let swappers (vs: list int): list (int, int) => {
     let afterSwap = fun v2 => sync (send resultCh (v1, v2));
     sync (wrap swapEv afterSwap);
   }) v;
-    
+
   let threads = List.map swapper vs;
   List.map (fun _ => sync (receive resultCh)) threads;
 };
@@ -27,7 +27,7 @@ let test =
     (list int)
     (fun l => {
       assume (List.length l mod 2 == 0);
-			pairs (swappers l);
+      pairs (swappers l);
     });
 
 QCheck.Test.check_exn test;
