@@ -23,3 +23,11 @@ let swap ch v => {
   });
 };
 
+let faulty_swap ch v => {
+  choose [
+    wrap (receive ch)
+      (fun (v2) => { sync(send ch v); v2; }),
+    wrap (send ch v)
+      (fun () => { sync(receive ch); })
+  ]
+};

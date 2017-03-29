@@ -6,7 +6,6 @@ open Event;
  * but does not guarantee that both halves complete with the same pairs.
  * So it allows A -> B -> C -> A. Whereas we want an atomic swap, A<->B, C<->D.
  * So every "Swapped X for Y" should have a corresponding "Swapped Y for X".
- * TODO: learn how to write quickcheck tests in Ocaml to try on lots of cases...
  */
 {
   let sc = Swap_channel.create ();
